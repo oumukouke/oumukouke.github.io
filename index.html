@@ -207,7 +207,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-23 22:56:29" itemprop="dateModified" datetime="2022-04-23T22:56:29+08:00">2022-04-23</time>
+      <time title="修改时间：2022-04-23 23:14:22" itemprop="dateModified" datetime="2022-04-23T23:14:22+08:00">2022-04-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -233,19 +233,32 @@
 <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>计时攻击是侧信道攻击的一种。<strong>测信道攻击</strong>是指通过观察设备的物理特性，如执行时间，能量消耗等信息来进行攻击，其最主要的特点便是攻击时不会对目标设备的硬件，软件或者运行逻辑产生任何的改变。测信道攻击有<strong>3</strong>大类，其中一类便是本基于设备执行时间来利用的<strong>计时攻击</strong>。</p>
 <hr>
 <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>下方写的一段代码，就存在着计时攻击</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// equal()用于比较用户输入的密码a和数据库存放的密码b是否相等</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">equal</span><span class="params">(a, b []<span class="keyword">byte</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	<span class="comment">// 判断长度是否一致</span></span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(a) == <span class="built_in">len</span>(b) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 循环遍历，看2个字符串相同位置上的字符是否相等，如果不相等立即返回false</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(a); i++ &#123;</span><br><span class="line">		<span class="keyword">if</span> a[i] != b[i] &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-golang" data-language="golang"><code class="language-golang">&#x2F;&#x2F; equal()用于比较用户输入的密码a和数据库存放的密码b是否相等
+func equal(a, b []byte) bool &#123;
+	&#x2F;&#x2F; 判断长度是否一致
+	if len(a) &#x3D;&#x3D; len(b) &#123;
+		return false
+	&#125;
+	&#x2F;&#x2F; 循环遍历，看2个字符串相同位置上的字符是否相等，如果不相等立即返回false
+	for i :&#x3D; 0; i &lt; len(a); i++ &#123;
+		if a[i] !&#x3D; b[i] &#123;
+			return false
+		&#125;
+	&#125;
+	return true
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>我们分析上方的代码，可以看出里面存在着一个重要逻辑：<strong>如果遇到字符不同，立即返回false</strong></p>
 <p>假设我们现在有2个很长的字符串<strong>a</strong>,<strong>b</strong>，它们的长度一样，并且对应位置上的字符几乎相同。唯一的差别就是有<strong>1</strong>个位置上的字符<strong>不一样</strong>。</p>
 <p>那么，如果不一样的这个字符在<strong>开头</strong>的位置上，程序一运行，立马就能检测出不一样。如果不一样的这个字符在<strong>末尾</strong>的位置上，程序运行，就必须检测完前面的所有字符之后，才可以检测出不一样。</p>
 <p>这之间就产生了时间差，通过时间差我们就可能判断出正确密码是什么。</p>
 <hr>
 <h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
-<li>计时攻击判断出正确密码所需要的次数远远少于暴力破解。假如有一个长度为10的纯数字密码，暴力破解最坏需要100亿次，而计时攻击最坏只需要90次。</li>
+<li><p>计时攻击判断出正确密码所需要的次数远远少于暴力破解。假如有一个长度为10的纯数字密码，暴力破解最坏需要100亿次，而计时攻击最坏只需要90次。</p>
+<p><img src="/2022/04/21/002-%E6%97%B6%E5%BA%8F%E6%94%BB%E5%87%BB/爆破攻击与计时攻击时间差距.png" alt="爆破攻击与计时攻击时间差距"></p>
+</li>
 </ol>
 <script type="math/tex; mode=display">
-假设有一个长度为n，每一位都可以从p个候选字符中选择一个填入的密码</script><script type="math/tex; mode=display">
-最坏情况下，暴力破解判断出正确密码需要p^n-1次</script><script type="math/tex; mode=display">
-最坏情况下，计时攻击判断出正确密码需要(p-1)*n次</script><p>==未完待续==</p>
+</script><p>==未完待续==</p>
 <hr>
 <h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
 <li>攻击条件非常苛刻，需要剔除网络延迟对运行时间的影响</li>
@@ -260,19 +273,74 @@
 <p>所以，想要防御计时攻击，实际上是要思考一种<strong>无关于内容的，时间恒定的</strong>的算法。</p>
 <hr>
 <p>其实想要实现这个时间恒定的算法非常的简单。之前的算法因为判断到不同，就立即返回，所以才会导致时间差异。那么我只需要修改逻辑，让它等全部字符比较完之后，再返回。这样时间就恒定了。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">第1步，判断传入的a,b长度是否相等</span><br><span class="line">第2步，设置一个标志位</span><br><span class="line">第3步. 循环遍历，看2个字符串的相同位置的字符是否相同。如果不同，则修改标志位。</span><br><span class="line">第4步. 根据标志位的状态，返回true或者false。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">func equal(a, b []byte) bool &#123;</span><br><span class="line">	// 第1步</span><br><span class="line">	if len(a) == len(b) &#123;</span><br><span class="line">		return false</span><br><span class="line">	&#125;</span><br><span class="line">	// 第2步</span><br><span class="line">	v := 0</span><br><span class="line">	// 第3步</span><br><span class="line">	for i := 0; i &lt; len(a); i++ &#123;</span><br><span class="line">		if a[i] != b[i] &#123;</span><br><span class="line">			v = 1</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	// 第4步</span><br><span class="line">	if v == 1 &#123;</span><br><span class="line">		return false</span><br><span class="line">	&#125;</span><br><span class="line">	return true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">第1步，判断传入的a,b长度是否相等
+第2步，设置一个标志位
+第3步. 循环遍历，看2个字符串的相同位置的字符是否相同。如果不同，则修改标志位。
+第4步. 根据标志位的状态，返回true或者false。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">func equal(a, b []byte) bool &#123;
+	&#x2F;&#x2F; 第1步
+	if len(a) &#x3D;&#x3D; len(b) &#123;
+		return false
+	&#125;
+	&#x2F;&#x2F; 第2步
+	v :&#x3D; 0
+	&#x2F;&#x2F; 第3步
+	for i :&#x3D; 0; i &lt; len(a); i++ &#123;
+		if a[i] !&#x3D; b[i] &#123;
+			v &#x3D; 1
+		&#125;
+	&#125;
+	&#x2F;&#x2F; 第4步
+	if v &#x3D;&#x3D; 1 &#123;
+		return false
+	&#125;
+	return true
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p>当然我们也可以利用<strong>异或</strong>和<strong>或</strong>运算，对我们的代码的第2步和第3步进行<strong>简化</strong>，使之变得简洁。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">异或运算：相同得0，不同得1</span><br><span class="line">将2个字符串的相同位置的字符进行异或运算。如果字符串相同，那么能得到一堆0</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">或运算：全0得0，有1得1</span><br><span class="line">如果是上面异或运算得结果是一堆0，那么或运算得结果就是0。如果异或运算中得到结果里，只要有一个1，那么或运算得结果就是1。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">func safeEuqal(a, b []byte) bool &#123;</span><br><span class="line">	if len(a) != len(b) &#123;</span><br><span class="line">		return false</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	var v byte = 0</span><br><span class="line"></span><br><span class="line">	for i := 0; i &lt; len(a); i++ &#123;</span><br><span class="line">		v |= a[i] ^ b[i]</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return v == 0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">异或运算：相同得0，不同得1
+将2个字符串的相同位置的字符进行异或运算。如果字符串相同，那么能得到一堆0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">或运算：全0得0，有1得1
+如果是上面异或运算得结果是一堆0，那么或运算得结果就是0。如果异或运算中得到结果里，只要有一个1，那么或运算得结果就是1。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">func safeEuqal(a, b []byte) bool &#123;
+	if len(a) !&#x3D; len(b) &#123;
+		return false
+	&#125;
+
+	var v byte &#x3D; 0
+
+	for i :&#x3D; 0; i &lt; len(a); i++ &#123;
+		v |&#x3D; a[i] ^ b[i]
+	&#125;
+
+	return v &#x3D;&#x3D; 0
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <h3 id="拓展思考1-上面的代码真的只是单纯的简化吗"><a href="#拓展思考1-上面的代码真的只是单纯的简化吗" class="headerlink" title="拓展思考1 上面的代码真的只是单纯的简化吗"></a>拓展思考1 上面的代码真的只是单纯的简化吗</h3><p>==未完待续==</p>
 <hr>
 <h3 id="拓展思考2-瞅瞅Go源码是怎么实现safeEqual"><a href="#拓展思考2-瞅瞅Go源码是怎么实现safeEqual" class="headerlink" title="拓展思考2 瞅瞅Go源码是怎么实现safeEqual()"></a>拓展思考2 瞅瞅Go源码是怎么实现safeEqual()</h3><p>在GO的标准库<strong>crypto/subtle</strong>中，有一个函数<code>ConstantTimeCompare()</code>函数，实现的便是安全比较。</p>
 <p>从注释中，我们就已经知道了，<code>ConstantTimeCompare()</code>函数运行的时间与传入参数的内容无关，只与参数的长度有关。</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ConstantTimeCompare returns 1 if the two slices, x and y, have equal contents</span></span><br><span class="line"><span class="comment">// and 0 otherwise. The time taken is a function of the length of the slices and</span></span><br><span class="line"><span class="comment">// is independent of the contents.</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ConstantTimeCompare</span><span class="params">(x, y []<span class="keyword">byte</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(x) != <span class="built_in">len</span>(y) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> v <span class="keyword">byte</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(x); i++ &#123;</span><br><span class="line">		v |= x[i] ^ y[i]</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> ConstantTimeByteEq(v, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ConstantTimeByteEq returns 1 if x == y and 0 otherwise.</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ConstantTimeByteEq</span><span class="params">(x, y <span class="keyword">uint8</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">int</span>((<span class="keyword">uint32</span>(x^y) - <span class="number">1</span>) &gt;&gt; <span class="number">31</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-golang" data-language="golang"><code class="language-golang">&#x2F;&#x2F; ConstantTimeCompare returns 1 if the two slices, x and y, have equal contents
+&#x2F;&#x2F; and 0 otherwise. The time taken is a function of the length of the slices and
+&#x2F;&#x2F; is independent of the contents.
+func ConstantTimeCompare(x, y []byte) int &#123;
+	if len(x) !&#x3D; len(y) &#123;
+		return 0
+	&#125;
+
+	var v byte
+
+	for i :&#x3D; 0; i &lt; len(x); i++ &#123;
+		v |&#x3D; x[i] ^ y[i]
+	&#125;
+
+	return ConstantTimeByteEq(v, 0)
+&#125;
+
+&#x2F;&#x2F; ConstantTimeByteEq returns 1 if x &#x3D;&#x3D; y and 0 otherwise.
+func ConstantTimeByteEq(x, y uint8) int &#123;
+	return int((uint32(x^y) - 1) &gt;&gt; 31)
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>可以看到，Go源码和我们所写的代码差不多，只是有几点不一样</p>
 <blockquote>
 <p>第1个不同点：为什么官方函数声明v的时候没有赋值为0</p>
@@ -361,7 +429,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="正方体折纸"><a href="#正方体折纸" class="headerlink" title="正方体折纸"></a>正方体折纸</h3><h4 id="1-总览"><a href="#1-总览" class="headerlink" title="1. 总览"></a>1. 总览</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1个33型</span><br><span class="line">1个222型</span><br><span class="line">3个231型</span><br><span class="line">6个141型</span><br></pre></td></tr></table></figure>
+          <h3 id="正方体折纸"><a href="#正方体折纸" class="headerlink" title="正方体折纸"></a>正方体折纸</h3><h4 id="1-总览"><a href="#1-总览" class="headerlink" title="1. 总览"></a>1. 总览</h4><pre class="line-numbers language-none"><code class="language-none">1个33型
+1个222型
+3个231型
+6个141型<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="/2022/01/22/001-%E6%AD%A3%E6%96%B9%E4%BD%93%E6%8A%98%E7%BA%B8/33型.jpg" alt="33型"></p>
 <p><img src="/2022/01/22/001-%E6%AD%A3%E6%96%B9%E4%BD%93%E6%8A%98%E7%BA%B8/222型.jpg" alt="222型"></p>
 <p><img src="/2022/01/22/001-%E6%AD%A3%E6%96%B9%E4%BD%93%E6%8A%98%E7%BA%B8/231-1型.jpg" alt="231-1型"></p>
@@ -373,36 +444,43 @@
 <p><img src="/2022/01/22/001-%E6%AD%A3%E6%96%B9%E4%BD%93%E6%8A%98%E7%BA%B8/141-4型.jpg" alt="141-4型"></p>
 <p><img src="/2022/01/22/001-%E6%AD%A3%E6%96%B9%E4%BD%93%E6%8A%98%E7%BA%B8/141-5型.jpg" alt="141-5型"></p>
 <p><img src="/2022/01/22/001-%E6%AD%A3%E6%96%B9%E4%BD%93%E6%8A%98%E7%BA%B8/141-6型.jpg" alt="141-6型"></p>
-<h4 id="2-33型"><a href="#2-33型" class="headerlink" title="2. 33型"></a>2. 33型</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">公共点的规律：沿红色三角形向外展开</span><br></pre></td></tr></table></figure>
+<h4 id="2-33型"><a href="#2-33型" class="headerlink" title="2. 33型"></a>2. 33型</h4><pre class="line-numbers language-none"><code class="language-none">公共点的规律：沿红色三角形向外展开<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="/2022/01/22/001-%E6%AD%A3%E6%96%B9%E4%BD%93%E6%8A%98%E7%BA%B8/33型.jpg" alt="33型"></p>
-<h4 id="3-222型"><a href="#3-222型" class="headerlink" title="3. 222型"></a>3. 222型</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">公共点的规律：每个相应的公共点都在一条斜对角直线上</span><br></pre></td></tr></table></figure>
+<h4 id="3-222型"><a href="#3-222型" class="headerlink" title="3. 222型"></a>3. 222型</h4><pre class="line-numbers language-none"><code class="language-none">公共点的规律：每个相应的公共点都在一条斜对角直线上<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="/2022/01/22/001-%E6%AD%A3%E6%96%B9%E4%BD%93%E6%8A%98%E7%BA%B8/222型.jpg" alt="222型"></p>
 <h4 id="4-231型"><a href="#4-231型" class="headerlink" title="4. 231型"></a>4. 231型</h4><p><strong>第1种形态</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">公共点的规律：无规律</span><br><span class="line">注意： C点有3个</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">公共点的规律：无规律
+注意： C点有3个<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><img src="/2022/01/22/001-%E6%AD%A3%E6%96%B9%E4%BD%93%E6%8A%98%E7%BA%B8/231-1型.jpg" alt="231-1型"></p>
 <p><strong>第2种形态</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">公共点的规律：无规律</span><br><span class="line">注意： D点有3个</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">公共点的规律：无规律
+注意： D点有3个<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><img src="/2022/01/22/001-%E6%AD%A3%E6%96%B9%E4%BD%93%E6%8A%98%E7%BA%B8/231-3型.jpg" alt="231-3型"></p>
 <p><strong>第3种形态</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">公共点的规律：无规律</span><br><span class="line">注意： C点,D点有3个</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">公共点的规律：无规律
+注意： C点,D点有3个<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><img src="/2022/01/22/001-%E6%AD%A3%E6%96%B9%E4%BD%93%E6%8A%98%E7%BA%B8/231-2型.jpg" alt="231-2型"></p>
 <h4 id="5-141型"><a href="#5-141型" class="headerlink" title="5. 141型"></a><strong>5. 141型</strong></h4><p><strong>第1种形态</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">公共点的规律：沿红色三角形向外展开</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">公共点的规律：沿红色三角形向外展开<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="/2022/01/22/001-%E6%AD%A3%E6%96%B9%E4%BD%93%E6%8A%98%E7%BA%B8/141-1型.jpg" alt="141-1型"></p>
 <p><strong>第2种形态</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">公共点的规律：沿红色三角形向外展开</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">公共点的规律：沿红色三角形向外展开<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="/2022/01/22/001-%E6%AD%A3%E6%96%B9%E4%BD%93%E6%8A%98%E7%BA%B8/141-4型.jpg" alt="141-4型"></p>
 <p><strong>第3种形态</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">公共点的规律：无规律</span><br><span class="line">注意： B点,C点有3个</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">公共点的规律：无规律
+注意： B点,C点有3个<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><img src="/2022/01/22/001-%E6%AD%A3%E6%96%B9%E4%BD%93%E6%8A%98%E7%BA%B8/141-5型.jpg" alt="141-5型"></p>
 <p><strong>第4种形态</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">公共点的规律：无规律</span><br><span class="line">注意： B点,C点有3个</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">公共点的规律：无规律
+注意： B点,C点有3个<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><img src="/2022/01/22/001-%E6%AD%A3%E6%96%B9%E4%BD%93%E6%8A%98%E7%BA%B8/141-6型.jpg" alt="141-6型"></p>
 <p><strong>第5种形态</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">公共点的规律：无规律</span><br><span class="line">注意： D点有3个</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">公共点的规律：无规律
+注意： D点有3个<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><img src="/2022/01/22/001-%E6%AD%A3%E6%96%B9%E4%BD%93%E6%8A%98%E7%BA%B8/141-2型.jpg" alt="141-2型"></p>
 <p><strong>第6种形态</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">公共点的规律：无规律</span><br><span class="line">注意： D点有3个</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">公共点的规律：无规律
+注意： D点有3个<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><img src="/2022/01/22/001-%E6%AD%A3%E6%96%B9%E4%BD%93%E6%8A%98%E7%BA%B8/141-3型.jpg" alt="141-3型"></p>
 
       
@@ -461,7 +539,7 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
