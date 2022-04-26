@@ -127,18 +127,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -167,6 +167,180 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/26/003-Golang%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4%E5%A4%A7%E5%85%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="猫吃猫薄荷">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="⊙﹏⊙">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/26/003-Golang%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4%E5%A4%A7%E5%85%A8/" class="post-title-link" itemprop="url">Golang汇编指令大全</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-04-26 00:00:00 / 修改时间：11:55:53" itemprop="dateCreated datePublished" datetime="2022-04-26T00:00:00+08:00">2022-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Golang%E6%B1%87%E7%BC%96/" itemprop="url" rel="index"><span itemprop="name">Golang汇编</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>这一块我还没搞明白</code></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>指令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>JCC</td>
+<td>无符号大于等于则跳转</td>
+</tr>
+<tr>
+<td>2</td>
+<td>JCS</td>
+<td>无符号小于则跳转</td>
+</tr>
+<tr>
+<td>3</td>
+<td>JCXZL</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>JEQ</td>
+<td>等于则跳转<strong>??</strong>为 0 则跳转</td>
+</tr>
+<tr>
+<td>5</td>
+<td>JGE</td>
+<td>有符号大于等于则跳转</td>
+</tr>
+<tr>
+<td>6</td>
+<td>JGT</td>
+<td>有符号大于则跳转</td>
+</tr>
+<tr>
+<td>7</td>
+<td>JHI</td>
+<td>无符号大于则跳转</td>
+</tr>
+<tr>
+<td>8</td>
+<td>JLE</td>
+<td>有符号小于等于则跳转</td>
+</tr>
+<tr>
+<td>9</td>
+<td>JLS</td>
+<td>无符号小于等于则跳转</td>
+</tr>
+<tr>
+<td>10</td>
+<td>JLT</td>
+<td>有符号小于则跳转</td>
+</tr>
+<tr>
+<td>11</td>
+<td>JMI</td>
+<td>为负则跳转</td>
+</tr>
+<tr>
+<td>12</td>
+<td>JNE</td>
+<td>不等于则跳转</td>
+</tr>
+<tr>
+<td>13</td>
+<td>JOC</td>
+<td>不溢出则跳转</td>
+</tr>
+<tr>
+<td>14</td>
+<td>JOS</td>
+<td>溢出则跳转</td>
+</tr>
+<tr>
+<td>15</td>
+<td>JPC</td>
+<td>奇偶位清除则跳转<strong>??</strong>奇偶位不等则跳转</td>
+</tr>
+<tr>
+<td>16</td>
+<td>JPL</td>
+<td>不为负则跳转</td>
+</tr>
+<tr>
+<td>17</td>
+<td>JPS</td>
+<td>奇偶位置位则跳转<strong>??</strong>奇偶位相等则跳转</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_32589873/article/details/78207020">(4条消息) 汇编语言跳转指令: JMP、JECXZ、JA、JB、JG、JL、JE、JZ、JS、JC、JO、JP 等_weixin_32589873的博客-CSDN博客_汇编je</a></p>
+<p><a target="_blank" rel="noopener" href="https://mlog.club/article/279436">Go汇编程序的条件跳转指令是什么？ | 码农俱乐部 - Golang中国 - Go语言中文社区 (mlog.club)</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -207,7 +381,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-23 23:48:26" itemprop="dateModified" datetime="2022-04-23T23:48:26+08:00">2022-04-23</time>
+      <time title="修改时间：2022-04-26 10:31:02" itemprop="dateModified" datetime="2022-04-26T10:31:02+08:00">2022-04-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -230,14 +404,14 @@
     
     <div class="post-body" itemprop="articleBody">
           <h2 id><a href="#" class="headerlink" title=" "></a> </h2><p><code>Go版本：1.17.5 电脑平台：win10/amd64</code></p>
-<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>计时攻击是侧信道攻击的一种。<strong>测信道攻击</strong>是指通过观察设备的物理特性，如执行时间，能量消耗等信息来进行攻击，其最主要的特点便是攻击时不会对目标设备的硬件，软件或者运行逻辑产生任何的改变。测信道攻击有<strong>3</strong>大类，其中一类便是本基于设备执行时间来利用的<strong>计时攻击</strong>。</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>计时攻击是侧信道攻击的一种。<strong>测信道攻击</strong>是指通过观察设备的物理特性，如执行时间，能量消耗等信息来进行攻击，其最主要的特点便是攻击时不会对目标设备的硬件，软件或者运行逻辑产生任何的改变。测信道攻击有<strong>3</strong>大类，其中一类便是本基于设备执行时间来利用的<strong>计时攻击</strong>。</p>
 <hr>
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>下方写的一段代码，就存在着计时攻击</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// equal()用于比较用户输入的密码a和数据库存放的密码b是否相等</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">equal</span><span class="params">(a, b []<span class="keyword">byte</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	<span class="comment">// 判断长度是否一致</span></span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(a) == <span class="built_in">len</span>(b) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 循环遍历，看2个字符串相同位置上的字符是否相等，如果不相等立即返回false</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(a); i++ &#123;</span><br><span class="line">		<span class="keyword">if</span> a[i] != b[i] &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="计时攻击之密码比较"><a href="#计时攻击之密码比较" class="headerlink" title="计时攻击之密码比较"></a>计时攻击之密码比较</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// equal()用于比较用户输入的密码a和数据库存放的密码b是否相等</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">equal</span><span class="params">(a, b []<span class="keyword">byte</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	<span class="comment">// 判断长度是否一致</span></span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(a) == <span class="built_in">len</span>(b) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 循环遍历，看2个字符串相同位置上的字符是否相等，如果不相等立即返回false</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(a); i++ &#123;</span><br><span class="line">		<span class="keyword">if</span> a[i] != b[i] &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我们分析上方的代码，可以看出里面存在着一个重要逻辑：<strong>如果遇到字符不同，立即返回false</strong></p>
 <p>假设我们现在有2个很长的字符串<strong>a</strong>,<strong>b</strong>，它们的长度一样，并且对应位置上的字符几乎相同。唯一的差别就是有<strong>1</strong>个位置上的字符<strong>不一样</strong>。</p>
 <p>那么，如果不一样的这个字符在<strong>开头</strong>的位置上，程序一运行，立马就能检测出不一样。如果不一样的这个字符在<strong>末尾</strong>的位置上，程序运行，就必须检测完前面的所有字符之后，才可以检测出不一样。</p>
-<p>这之间就产生了时间差，通过时间差我们就可能判断出正确密码是什么。</p>
+<p>这之间就产生了时间差，通过对返回的时间进行比较，就能知道我们输入的密码和正确的密码在哪一位开始不一样。</p>
+<p>进而逐位判断出正确密码是什么。</p>
 <hr>
 <h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
 <li><p>计时攻击判断出正确密码所需要的次数远远少于暴力破解。假如有一个长度为10的纯数字密码，暴力破解最坏需要100亿次，而计时攻击最坏只需要90次。</p>
@@ -251,23 +425,21 @@
 <hr>
 <h3 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h3><p><mark>未完待续</mark></p>
 <hr>
-<h3 id="如何防御"><a href="#如何防御" class="headerlink" title="如何防御"></a>如何防御</h3><p>防御的思路在于，不管传入的a与b的<strong>长度</strong>与<strong>内容</strong>如何，应当使其equal()函数运行的要么<strong>时间恒定</strong>，要么<strong>时间不可预测</strong>。</p>
+<h3 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h3><p>防御的思路在于，不管传入的a与b的<strong>长度</strong>与<strong>内容</strong>如何，应当使其equal()函数运行的要么<strong>时间恒定</strong>，要么<strong>时间不可预测</strong>。</p>
 <p>在实际生活中，我们一般不会考虑<strong>时间不可预测</strong>。因为想要时间不可预测就必须在程序执行时随机插入<strong>伪操作</strong>，例如睡眠指令，这样函数执行时间便取决于插入的伪操作数量和每一个伪操作的时间。但这种方法，引来的问题便是插入的伪操作越多，变化便越大，从而随机性便越好，但<strong>数据的吞吐量却会越低</strong>。</p>
-<p>此外，<strong>长度</strong>一般也不做考虑，因为长度即使暴露带来的影响也有限。并且存放的密码通常都会采用<strong>哈希算法</strong>进行<strong>信息摘要</strong>，形成256或者512位的摘要。所以在校验密码时，传入equal()的a，b的长度都是一致的。</p>
+<p>此外，<strong>长度</strong>一般也不做考虑，因为存放的密码通常都会采用<strong>哈希算法</strong>进行<strong>信息摘要</strong>，形成256或者512位的摘要。</p>
 <p>所以，想要防御计时攻击，实际上是要思考一种<strong>无关于内容的，时间恒定的</strong>的算法。</p>
 <hr>
 <p>其实想要实现这个时间恒定的算法非常的简单。之前的算法因为判断到不同，就立即返回，所以才会导致时间差异。那么我只需要修改逻辑，让它等全部字符比较完之后，再返回。这样时间就恒定了。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">第1步，判断传入的a,b长度是否相等</span><br><span class="line">第2步，设置一个标志位</span><br><span class="line">第3步. 循环遍历，看2个字符串的相同位置的字符是否相同。如果不同，则修改标志位。</span><br><span class="line">第4步. 根据标志位的状态，返回true或者false。</span><br></pre></td></tr></table></figure>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">equal</span><span class="params">(a, b []<span class="keyword">byte</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	<span class="comment">// 第1步</span></span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(a) == <span class="built_in">len</span>(b) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 第2步</span></span><br><span class="line">	v := <span class="number">0</span></span><br><span class="line">	<span class="comment">// 第3步</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(a); i++ &#123;</span><br><span class="line">		<span class="keyword">if</span> a[i] != b[i] &#123;</span><br><span class="line">			v = <span class="number">1</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 第4步</span></span><br><span class="line">	<span class="keyword">if</span> v == <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// safeEqual() 1.0版本</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">safeEqual</span><span class="params">(a, b []<span class="keyword">byte</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	<span class="comment">// 第1步</span></span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(a) == <span class="built_in">len</span>(b) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 第2步</span></span><br><span class="line">	v := <span class="number">0</span></span><br><span class="line">	<span class="comment">// 第3步</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(a); i++ &#123;</span><br><span class="line">		<span class="keyword">if</span> a[i] != b[i] &#123;</span><br><span class="line">			v = <span class="number">1</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 第4步</span></span><br><span class="line">	<span class="keyword">if</span> v == <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <p>当然我们也可以利用<strong>异或</strong>和<strong>或</strong>运算，对我们的代码的第2步和第3步进行<strong>简化</strong>，使之变得简洁。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">异或运算：相同得0，不同得1</span><br><span class="line">将2个字符串的相同位置的字符进行异或运算。如果字符串相同，那么能得到一堆0</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">或运算：全0得0，有1得1</span><br><span class="line">如果是上面异或运算得结果是一堆0，那么或运算得结果就是0。如果异或运算中得到结果里，只要有一个1，那么或运算得结果就是1。</span><br></pre></td></tr></table></figure>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">safeEuqal</span><span class="params">(a, b []<span class="keyword">byte</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(a) != <span class="built_in">len</span>(b) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> v <span class="keyword">byte</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(a); i++ &#123;</span><br><span class="line">		v |= a[i] ^ b[i]</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> v == <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// safeEqual() 2.0版本</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">safeEqual</span><span class="params">(a, b []<span class="keyword">byte</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(a) != <span class="built_in">len</span>(b) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> v <span class="keyword">byte</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(a); i++ &#123;</span><br><span class="line">		v |= a[i] ^ b[i]</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> v == <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="拓展思考1-上面的代码真的只是单纯的简化吗"><a href="#拓展思考1-上面的代码真的只是单纯的简化吗" class="headerlink" title="拓展思考1 上面的代码真的只是单纯的简化吗"></a>拓展思考1 上面的代码真的只是单纯的简化吗</h3><p><mark>未完待续</mark></p>
-<hr>
-<h3 id="拓展思考2-瞅瞅Go源码是怎么实现safeEqual"><a href="#拓展思考2-瞅瞅Go源码是怎么实现safeEqual" class="headerlink" title="拓展思考2 瞅瞅Go源码是怎么实现safeEqual()"></a>拓展思考2 瞅瞅Go源码是怎么实现safeEqual()</h3><p>在GO的标准库<strong>crypto/subtle</strong>中，有一个函数<code>ConstantTimeCompare()</code>函数，实现的便是安全比较。</p>
+<h3 id="拓展思考1-瞅瞅Go源码里的safeEqual"><a href="#拓展思考1-瞅瞅Go源码里的safeEqual" class="headerlink" title="拓展思考1 瞅瞅Go源码里的safeEqual()"></a>拓展思考1 瞅瞅Go源码里的safeEqual()</h3><p>在GO的标准库<strong>crypto/subtle</strong>中，有一个函数<code>ConstantTimeCompare()</code>函数，实现的便是安全比较。</p>
 <p>从注释中，我们就已经知道了，<code>ConstantTimeCompare()</code>函数运行的时间与传入参数的内容无关，只与参数的长度有关。</p>
 <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ConstantTimeCompare returns 1 if the two slices, x and y, have equal contents</span></span><br><span class="line"><span class="comment">// and 0 otherwise. The time taken is a function of the length of the slices and</span></span><br><span class="line"><span class="comment">// is independent of the contents.</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ConstantTimeCompare</span><span class="params">(x, y []<span class="keyword">byte</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(x) != <span class="built_in">len</span>(y) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> v <span class="keyword">byte</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(x); i++ &#123;</span><br><span class="line">		v |= x[i] ^ y[i]</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> ConstantTimeByteEq(v, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ConstantTimeByteEq returns 1 if x == y and 0 otherwise.</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ConstantTimeByteEq</span><span class="params">(x, y <span class="keyword">uint8</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">int</span>((<span class="keyword">uint32</span>(x^y) - <span class="number">1</span>) &gt;&gt; <span class="number">31</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>可以看到，Go源码和我们所写的代码差不多，只是有几点不一样</p>
@@ -283,9 +455,16 @@
 <p>第3个不同点：为什么官方函数传出的是int类型，这里可以用bool类型替换吗？</p>
 </blockquote>
 <p><mark>未完待续</mark></p>
+<h3 id="拓展思考2-safeEqual-2-0版本真是只是1-0版本的功能替换吗？"><a href="#拓展思考2-safeEqual-2-0版本真是只是1-0版本的功能替换吗？" class="headerlink" title="拓展思考2 safeEqual()2.0版本真是只是1.0版本的功能替换吗？"></a>拓展思考2 safeEqual()2.0版本真是只是1.0版本的功能替换吗？</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	a := []<span class="keyword">byte</span>&#123;<span class="number">1</span>, <span class="number">2</span>&#125;</span><br><span class="line">	b := []<span class="keyword">byte</span>&#123;<span class="number">1</span>, <span class="number">2</span>&#125;</span><br><span class="line">	equal(a, b)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// safeEqual() 1.0版本</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">safeEqual</span><span class="params">(a, b []<span class="keyword">byte</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(a) == <span class="built_in">len</span>(b) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">	c := <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(a); i++ &#123;</span><br><span class="line">		<span class="keyword">if</span> a[i] != b[i] &#123;</span><br><span class="line">			c = <span class="number">1</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> c == <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们查看汇编</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">0x0018 00024 (main.go:11)       CMPQ    SI, BX  // 比较SI和BX寄存器里的值</span><br><span class="line">0x001b 00027 (main.go:11)       JEQ     35 // 如果上面一行SI和BX等于，那么跳转到00035</span><br><span class="line">0x001d 00029 (main.go:11)       XORL    CX, CX  // 将CX和CX进行异或 ？？</span><br><span class="line">0x001f 00031 (main.go:11)       XORL    DX, DX  // 将DX和DX进行异或 ？？</span><br><span class="line">0x0021 00033 (main.go:11)       JMP     68</span><br><span class="line">0x0023 00035 (main.go:12)       XORL    AX, AX  // 将AX和AX进行异或 ？？</span><br><span class="line">0x0025 00037 (main.go:12)       MOVQ    16(SP), BP // BP = 16(SP)位置上的值</span><br><span class="line">0x002a 00042 (main.go:12)       ADDQ    $24, SP // SP空间减少24</span><br><span class="line">0x002e 00046 (main.go:12)       RET  // 结束</span><br><span class="line">0x002f 00047 (main.go:18)       MOVBLZX (DI)(CX*1), R9</span><br><span class="line">0x0034 00052 (main.go:18)       CMPB    R9B, R8B</span><br><span class="line">0x0037 00055 (main.go:23)       MOVL    $1, R8</span><br><span class="line">0x003d 00061 (main.go:23)       CMOVQNE R8, DX</span><br><span class="line">0x0041 00065 (main.go:17)       INCQ    CX  </span><br><span class="line">0x0044 00068 (main.go:17)       CMPQ    BX, CX  // 比较BX和CX</span><br><span class="line">0x0047 00071 (main.go:17)       JLE     85 // 小于等于则跳转到00085</span><br><span class="line">0x0049 00073 (main.go:18)       MOVBLZX (AX)(CX*1), R8</span><br><span class="line">0x004e 00078 (main.go:18)       CMPQ    SI, CX</span><br><span class="line">0x0051 00081 (main.go:18)       JHI     47</span><br><span class="line">0x0053 00083 (main.go:18)       JMP     118</span><br><span class="line">0x0055 00085 (main.go:23)       CMPQ    DX, $1</span><br><span class="line">0x0059 00089 (main.go:23)       JNE     103 // 不等于则跳转</span><br><span class="line">0x005b 00091 (main.go:24)       XORL    AX, AX</span><br><span class="line">0x005d 00093 (main.go:24)       MOVQ    16(SP), BP</span><br><span class="line">0x0062 00098 (main.go:24)       ADDQ    $24, SP</span><br><span class="line">0x0066 00102 (main.go:24)       RET</span><br><span class="line">0x0067 00103 (main.go:26)       MOVL    $1, AX</span><br><span class="line">0x006c 00108 (main.go:26)       MOVQ    16(SP), BP</span><br><span class="line">0x0071 00113 (main.go:26)       ADDQ    $24, SP</span><br><span class="line">0x0075 00117 (main.go:26)       RET</span><br><span class="line">0x0076 00118 (main.go:18)       MOVQ    CX, AX</span><br><span class="line">0x0079 00121 (main.go:18)       MOVQ    SI, CX</span><br><span class="line">0x007c 00124 (main.go:18)       PCDATA  $1, $1</span><br><span class="line">0x007c 00124 (main.go:18)       NOP</span><br><span class="line">0x0080 00128 (main.go:18)       CALL    runtime.panicIndex(SB)</span><br><span class="line">0x0085 00133 (main.go:18)       XCHGL   AX, AX</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	a := []byte&#123;1, 2&#125;</span><br><span class="line">	b := []byte&#123;1, 2&#125;</span><br><span class="line">	safeEqual(a, b)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// safeEqual() 2.0版本</span><br><span class="line">func safeEqual(a, b []byte) bool &#123;</span><br><span class="line">	if len(a) != len(b) &#123;</span><br><span class="line">		return false</span><br><span class="line">	&#125;</span><br><span class="line">	var v byte = 0</span><br><span class="line">	for i := 0; i &lt; len(a); i++ &#123;</span><br><span class="line">		v |= a[i] ^ b[i]</span><br><span class="line">	&#125;</span><br><span class="line">	return v == 0</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">0x000a 00010 (main.go:11)       CMPQ    SI, BX</span><br><span class="line">0x000d 00013 (main.go:11)       JNE     21</span><br><span class="line">0x000f 00015 (main.go:11)       XORL    CX, CX</span><br><span class="line">0x0011 00017 (main.go:11)       XORL    DX, DX</span><br><span class="line">0x0013 00019 (main.go:11)       JMP     47</span><br><span class="line">0x0015 00021 (main.go:12)       XORL    AX, AX</span><br><span class="line">0x0017 00023 (main.go:12)       RET</span><br><span class="line">0x0018 00024 (main.go:15)       LEAQ    1(CX), SI</span><br><span class="line">0x001c 00028 (main.go:16)       MOVBLZX (AX)(CX*1), R8</span><br><span class="line">0x0021 00033 (main.go:16)       MOVBLZX (DI)(CX*1), R9</span><br><span class="line">0x0026 00038 (main.go:16)       XORL    R9, R8</span><br><span class="line">0x0029 00041 (main.go:16)       ORL     R8, DX</span><br><span class="line">0x002c 00044 (main.go:15)       MOVQ    SI, CX</span><br><span class="line">0x002f 00047 (main.go:15)       CMPQ    BX, CX</span><br><span class="line">0x0032 00050 (main.go:15)       JGT     24</span><br><span class="line">0x0034 00052 (main.go:18)       TESTB   DL, DL</span><br><span class="line">0x0036 00054 (main.go:18)       SETEQ   AL</span><br><span class="line">0x0039 00057 (main.go:18)       RET</span><br></pre></td></tr></table></figure>
+<p><mark>未完待续</mark></p>
 <hr>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a target="_blank" rel="noopener" href="http://find.nlc.cn/search/showDocDetails?docId=8128853434289059707&amp;dataSource=ucs01&amp;query=能量攻击分析">《能量攻击分析》(ISBN号: 978-7-03-028135-7)</a></p>
-<html>
+<hr>
+<h2 id="计时攻击之Meltdown漏洞"><a href="#计时攻击之Meltdown漏洞" class="headerlink" title="计时攻击之Meltdown漏洞"></a>计时攻击之Meltdown漏洞</h2><html>
 
 <p><head><br>    <style><br>        mark {<br>            background-color:#FFFF00 ; font-weight:bold;<br>        }
     </style></head></p>
